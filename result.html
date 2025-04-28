@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Enhanced Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container result-container">
+    <h1>✨ Enhanced Result</h1>
+
+    <div class="image-row">
+      <div class="image-box">
+        <h3>🔻 Input Image</h3>
+        <img src="{{ url_for('static', filename=input_image_path) }}" alt="Input">
+      </div>
+
+      <div class="image-box">
+        <h3>🔼 Super-Resolved Image</h3>
+        <img src="{{ url_for('static', filename=output_image_path) }}" alt="Output">
+        <a href="{{ url_for('download_file', filename=output_image_name) }}" class="download-btn green-btn">⬇ Download</a>
+      </div>
+
+      <div class="image-box">
+        <h3>🔍 LIME Explanation</h3>
+        <img src="{{ url_for('static', filename=lime_image_path) }}" alt="LIME Explanation">
+        <a href="{{ url_for('download_file', filename=lime_image_name) }}" class="download-btn green-btn">⬇ Download</a>
+        <p class="lime-explanation">
+          <strong>Explanation:</strong> The yellow-highlighted regions in this image show the areas that most influenced the ESRGAN model’s output. 
+          LIME (Local Interpretable Model-Agnostic Explanations) perturbs parts of the input image and observes how predictions change, allowing us to 
+          understand which parts the model "looked at" most during enhancement.
+        </p>
+      </div>
+    </div>
+
+    <a href="{{ url_for('index') }}" class="download-btn blue-btn">🌀 Enhance Another Image</a>
+  </div>
+</body>
+</html>

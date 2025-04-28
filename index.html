@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Super Resolution Enhancer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>🖼️ Image Super-Resolution & LIME Explanation</h1>
+    <form method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" required>
+      <button type="submit">🚀 Enhance</button>
+    </form>
+  </div>
+
+  {% if gallery_images %}
+  <div class="container gallery">
+    <h2>🖼️ Recent Enhancements</h2>
+    <div class="gallery-grid">
+      {% for image in gallery_images %}
+      <div class="gallery-item">
+        <img src="{{ url_for('static', filename='results/' ~ image) }}" alt="{{ image }}">
+        <p>{{ image }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</body>
+</html>

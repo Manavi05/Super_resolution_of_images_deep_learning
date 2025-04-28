@@ -1,0 +1,10 @@
+flask
+pillow
+numpy
+torch
+torchvision
+matplotlib
+basicsr
+facexlib
+gfpgan
+realesrgan
